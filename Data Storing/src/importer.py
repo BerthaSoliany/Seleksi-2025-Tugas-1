@@ -51,13 +51,13 @@ def import_json():
 
                 if pair_key not in game_region_pairs:
                     cursor.execute(
-                        "INSERT IGNORE INTO In (game_id, region_id) VALUES (%s, %s)",
+                        "INSERT IGNORE INTO InRelation (game_id, region_id) VALUES (%s, %s)",
                         (game_id, region_id)
                     )
                     game_region_pairs.add(pair_key)
 
                 cursor.execute(
-                    "SELECT in_id FROM In WHERE game_id = %s AND region_id = %s",
+                    "SELECT in_id FROM InRelation WHERE game_id = %s AND region_id = %s",
                     (game_id, region_id)
                 )
 
